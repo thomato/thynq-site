@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.KotlinJsTargetDsl
+
 plugins {
     kotlin("js") version "1.6.20"
 }
@@ -22,6 +24,12 @@ kotlin {
             commonWebpackConfig {
                 cssSupport.enabled = true
                 resources
+            }
+
+            testTask {
+                useKarma {
+                    useChrome()
+                }
             }
         }
     }
